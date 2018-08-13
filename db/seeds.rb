@@ -8,7 +8,7 @@ data['users'].each do |user_id, user_data|
     Account.create!(
       user_id: user.id,
       currency: account_data['currency'],
-      amount: account_data['amount']
+      amount: account_data['balance']
     )
   end
 end

@@ -11,9 +11,20 @@
 </p>
 
 <p>
-  <strong>Password:</strong>
-  <%= @user.password %>
+  <strong>Accounts:</strong>
+  <% @accounts.each do |account| %>
+    <tr>
+      <td>
+      <p>
+        <strong>Amount:</strong>
+        <%= account.amount %>
+        <strong>Currency:</strong>
+        <%= account.currency %>
+      </p>
+    </td>
+      <td><%= link_to 'Show', account %></td>
+    </tr>
+  <% end %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
