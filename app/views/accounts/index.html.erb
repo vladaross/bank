@@ -15,7 +15,7 @@
   <tbody>
     <% @accounts.each do |account| %>
       <tr>
-        <td><%= account.user %></td>
+        <td><%= account.user.name %></td>
         <td><%= account.currency %></td>
         <td><%= account.amount %></td>
         <td><%= link_to 'Show', account %></td>

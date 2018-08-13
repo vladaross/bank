@@ -22,12 +22,15 @@ banknotes:
 users:
   3321:
     name: 'Volodymyr'
+    email: 'vova@gmail.com'
     password: 'mypass'
   5922:
     name: 'Iryna'
+    email: 'ira@gmail.com'
     password: 'ho#ll_§1'
   6128:
     name: 'Bohdan'
+    email: 'boh@gmail.com'
     password: 'p1v0rakru1eZZ!'
 accounts:
   123:
