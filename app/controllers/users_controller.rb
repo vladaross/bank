@@ -21,6 +21,10 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def profile
+    redirect_to user_path(current_user)
+  end
+
   # POST /users
   # POST /users.json
   def create
