@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  account: one
+  type: 
+  sum: 9.99
+
+two:
+  account: two
+  type: 
+  sum: 9.99
