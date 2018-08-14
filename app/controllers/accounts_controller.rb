@@ -18,6 +18,16 @@ class AccountsController < ApplicationController
     @account = current_user.transactions.build
   end
 
+  def deposit
+    Service::Deposit.new(params).call
+    redirect_to root_path, notice: message
+  end
+
+  def withdrawal
+    Service::Withdrawal.new(params).call
+    redirect_to root_path, notice: message
+  end
+
   # GET /accounts/1/edit
   def edit
   end
@@ -26,6 +36,7 @@ class AccountsController < ApplicationController
   # POST /accounts.json
   def create
     @account = current_user.accounts.build(account_params)
+
 
     respond_to do |format|
       if @account.save
