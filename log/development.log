@@ -2440,3 +2440,426 @@ Migrating to AddKindToTransactions (20180814130536)
   ↳ /home/vlada/.rvm/gems/ruby-2.4.0/bin/rake:23
   [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ /home/vlada/.rvm/gems/ruby-2.4.0/bin/rake:23
+Started POST "/transactions" for 127.0.0.1 at 2018-08-14 16:09:14 +0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vlada/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by TransactionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SY0D6AmuuEBRMPk3Sstt1I0pXPDnOScvC73l9cEsRXrwynRcT3+9IYvCaMtiPyT2P0MXy/PSFZlMEGAbDKJuxw==", "transaction"=>{"account_id"=>"", "type"=>"deposit", "sum"=>"20"}, "commit"=>"Create Transaction"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /home/vlada/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Unpermitted parameter: :type
+Completed 500 Internal Server Error in 46ms (ActiveRecord: 7.9ms)
+
+
+  
+NoMethodError (undefined method `account_id' for #<User:0x00000003f89ac8>
+Did you mean?  account_ids
+               account_ids=
+               accounts
+               accounts=):
+  
+app/controllers/transactions_controller.rb:28:in `create'
+Started POST "/transactions" for 127.0.0.1 at 2018-08-14 16:09:27 +0300
+Processing by TransactionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SY0D6AmuuEBRMPk3Sstt1I0pXPDnOScvC73l9cEsRXrwynRcT3+9IYvCaMtiPyT2P0MXy/PSFZlMEGAbDKJuxw==", "transaction"=>{"account_id"=>"", "type"=>"deposit", "sum"=>"20"}, "commit"=>"Create Transaction"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /home/vlada/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Unpermitted parameter: :type
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 6.3ms)
+
+
+  
+NoMethodError (undefined method `account_id' for #<User:0x00000003ca53e8>
+Did you mean?  account_ids
+               account_ids=
+               accounts
+               accounts=):
+  
+app/controllers/transactions_controller.rb:28:in `create'
+Started POST "/transactions" for 127.0.0.1 at 2018-08-14 16:09:40 +0300
+Processing by TransactionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SY0D6AmuuEBRMPk3Sstt1I0pXPDnOScvC73l9cEsRXrwynRcT3+9IYvCaMtiPyT2P0MXy/PSFZlMEGAbDKJuxw==", "transaction"=>{"account_id"=>"", "type"=>"deposit", "sum"=>"20"}, "commit"=>"Create Transaction"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /home/vlada/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Unpermitted parameter: :type
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "accounts"."id" FROM "accounts" WHERE "accounts"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/transactions_controller.rb:28
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/transactions_controller.rb:31
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/transactions_controller.rb:31
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/_form.html.erb (6.7ms)
+  Rendered transactions/new.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 240ms (Views: 188.2ms | ActiveRecord: 12.2ms)
+
+
+Started GET "/transactions" for 127.0.0.1 at 2018-08-14 16:13:36 +0300
+Processing by TransactionsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /home/vlada/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering transactions/index.html.erb within layouts/application
+  [1m[36mTransaction Load (29.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions"[0m
+  ↳ app/views/transactions/index.html.erb:16
+  Rendered transactions/index.html.erb within layouts/application (34.1ms)
+Completed 200 OK in 79ms (Views: 26.7ms | ActiveRecord: 37.1ms)
+
+
+Started GET "/transactions/new" for 127.0.0.1 at 2018-08-14 16:13:39 +0300
+Processing by TransactionsController#new as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /home/vlada/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/_form.html.erb (3.2ms)
+  Rendered transactions/new.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 163ms (Views: 22.7ms | ActiveRecord: 5.8ms)
+
+
+Started POST "/transactions" for 127.0.0.1 at 2018-08-14 16:13:47 +0300
+Processing by TransactionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"O7IVX7J0BJaXRGRWRtZcQRAzbMBUDORUdcw5LtMxLxMdK7Z5EcdSvIpRHunUeWOq3QKM9b8NJ7BxmbGR238tbw==", "transaction"=>{"kind"=>"deposit", "sum"=>"100"}, "commit"=>"Create Transaction"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /home/vlada/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/transactions_controller.rb:30
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/transactions_controller.rb:30
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/_form.html.erb (1.9ms)
+  Rendered transactions/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 29ms (Views: 21.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/transactions" for 127.0.0.1 at 2018-08-14 16:14:10 +0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vlada/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by TransactionsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /home/vlada/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering transactions/index.html.erb within layouts/application
+  [1m[36mTransaction Load (0.5ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions"[0m
+  ↳ app/views/transactions/index.html.erb:16
+  Rendered transactions/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 203ms (Views: 168.3ms | ActiveRecord: 7.4ms)
+
+
+Started GET "/transactions/new" for 127.0.0.1 at 2018-08-14 16:14:12 +0300
+Processing by TransactionsController#new as HTML
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /home/vlada/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/_form.html.erb (5.4ms)
+  Rendered transactions/new.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 62ms (Views: 25.5ms | ActiveRecord: 8.2ms)
+
+
+Started POST "/transactions" for 127.0.0.1 at 2018-08-14 16:14:22 +0300
+Processing by TransactionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gpxw7r3Sl2EUjK7tfmIzfRyLUuReWjXLoGEFHkluFKqkBdPIHmHBSwmZ1FLszQyW0bqy0bVb9i+kNI2hQSAW1g==", "transaction"=>{"kind"=>"deposit", "sum"=>"100"}, "commit"=>"Create Transaction"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /home/vlada/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/transactions_controller.rb:30
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/transactions_controller.rb:30
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/_form.html.erb (4.0ms)
+  Rendered transactions/new.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 58ms (Views: 42.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/transactions" for 127.0.0.1 at 2018-08-14 16:17:37 +0300
+Processing by TransactionsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /home/vlada/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering transactions/index.html.erb within layouts/application
+  [1m[36mTransaction Load (0.4ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions"[0m
+  ↳ app/views/transactions/index.html.erb:16
+  Rendered transactions/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 38ms (Views: 17.8ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/transactions/new" for 127.0.0.1 at 2018-08-14 16:17:39 +0300
+Processing by TransactionsController#new as HTML
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /home/vlada/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Completed 500 Internal Server Error in 63ms (ActiveRecord: 2.4ms)
+
+
+  
+NoMethodError (undefined method `account_id' for #<User:0x007fbfbd7de400>
+Did you mean?  account_ids
+               account_ids=
+               accounts
+               accounts=):
+  
+app/controllers/transactions_controller.rb:17:in `new'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7798609168987932225)[0m
+  ↳ /home/vlada/.rvm/gems/ruby-2.4.0/bin/rake:23
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vlada/.rvm/gems/ruby-2.4.0/bin/rake:23
+Migrating to AddUserToTransactions (20180814132432)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/vlada/.rvm/gems/ruby-2.4.0/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "transactions" ADD "user_id" bigint[0m
+  ↳ db/migrate/20180814132432_add_user_to_transactions.rb:3
+  [1m[35m (42.5ms)[0m  [1m[35mCREATE  INDEX  "index_transactions_on_user_id" ON "transactions"  ("user_id")[0m
+  ↳ db/migrate/20180814132432_add_user_to_transactions.rb:3
+  [1m[35m (3.5ms)[0m  [1m[35mALTER TABLE "transactions" ADD CONSTRAINT "fk_rails_77364e6416"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  ↳ db/migrate/20180814132432_add_user_to_transactions.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180814132432"]]
+  ↳ /home/vlada/.rvm/gems/ruby-2.4.0/bin/rake:23
+  [1m[35m (15.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/vlada/.rvm/gems/ruby-2.4.0/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /home/vlada/.rvm/gems/ruby-2.4.0/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/vlada/.rvm/gems/ruby-2.4.0/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/vlada/.rvm/gems/ruby-2.4.0/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7798609168987932225)[0m
+  ↳ /home/vlada/.rvm/gems/ruby-2.4.0/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vlada/.rvm/gems/ruby-2.4.0/bin/rake:23
+Started GET "/transactions/new" for 127.0.0.1 at 2018-08-14 16:26:48 +0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vlada/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by TransactionsController#new as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /home/vlada/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/_form.html.erb (5.8ms)
+  Rendered transactions/new.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 232ms (Views: 182.5ms | ActiveRecord: 9.9ms)
+
+
+Started POST "/transactions" for 127.0.0.1 at 2018-08-14 16:27:00 +0300
+Processing by TransactionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4tbpNAClqv9DSMTU5e8A3W+gNOF5z76AejfqoLyKQ3BbkZ6ARnSvnpm6VSjNG0n/3cp/2m0kjDY9mm9OcQRozQ==", "transaction"=>{"account_id"=>"1", "kind"=>"deposit", "sum"=>"100"}, "commit"=>"Create Transaction"}
+  [1m[36mUser Load (5.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /home/vlada/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 5.2ms)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/transactions_controller.rb:27:in `create'
+Started POST "/transactions" for 127.0.0.1 at 2018-08-14 16:28:43 +0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vlada/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by TransactionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4tbpNAClqv9DSMTU5e8A3W+gNOF5z76AejfqoLyKQ3BbkZ6ARnSvnpm6VSjNG0n/3cp/2m0kjDY9mm9OcQRozQ==", "transaction"=>{"account_id"=>"1", "kind"=>"deposit", "sum"=>"100"}, "commit"=>"Create Transaction"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /home/vlada/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 7.7ms)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/transactions_controller.rb:27:in `create'
+Started GET "/transactions/new" for 127.0.0.1 at 2018-08-14 16:28:55 +0300
+Processing by TransactionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /home/vlada/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/_form.html.erb (6.5ms)
+  Rendered transactions/new.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 173ms (Views: 168.3ms | ActiveRecord: 0.4ms)
+
+
+  [1m[36mAccount Load (0.5ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" ORDER BY "accounts"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/transactions" for 127.0.0.1 at 2018-08-14 16:31:14 +0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vlada/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by TransactionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6EE8YbHVgFZjgn0v0vuO46W681+yloLhQx5OtuVkooZRBkvV9wSFN7lw7NP6D8fBF9C4ZKZ9sFcEs8tYKOqJOw==", "transaction"=>{"account_id"=>"7", "kind"=>"deposit", "sum"=>"20"}, "commit"=>"Create Transaction"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /home/vlada/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 6.8ms)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/transactions_controller.rb:27:in `create'
+Started POST "/transactions" for 127.0.0.1 at 2018-08-14 16:31:20 +0300
+Processing by TransactionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6EE8YbHVgFZjgn0v0vuO46W681+yloLhQx5OtuVkooZRBkvV9wSFN7lw7NP6D8fBF9C4ZKZ9sFcEs8tYKOqJOw==", "transaction"=>{"account_id"=>"7", "kind"=>"deposit", "sum"=>"20"}, "commit"=>"Create Transaction"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /home/vlada/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.6ms)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/transactions_controller.rb:27:in `create'
+Started GET "/users/5" for 127.0.0.1 at 2018-08-14 16:34:11 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /home/vlada/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:71
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 180ms (Views: 172.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/4" for 127.0.0.1 at 2018-08-14 16:34:14 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /home/vlada/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:71
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/views/users/show.html.erb:15
+  Rendered users/show.html.erb within layouts/application (20.8ms)
+Completed 200 OK in 46ms (Views: 33.6ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/transactions" for 127.0.0.1 at 2018-08-14 16:34:21 +0300
+Processing by TransactionsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /home/vlada/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering transactions/index.html.erb within layouts/application
+  [1m[36mTransaction Load (0.5ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions"[0m
+  ↳ app/views/transactions/index.html.erb:16
+  Rendered transactions/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 20ms (Views: 17.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/transactions/new" for 127.0.0.1 at 2018-08-14 16:34:23 +0300
+Processing by TransactionsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /home/vlada/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/_form.html.erb (7.1ms)
+  Rendered transactions/new.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 34ms (Views: 28.1ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/transactions" for 127.0.0.1 at 2018-08-14 16:34:36 +0300
+Processing by TransactionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"o94mfyakuKSRHNgu0dqWx9hc6GY6jv/f+IzvkKLEj5CFR4VZhRfujowJopFDdaksFW0IU9GPPDv82WcvqoqN7A==", "transaction"=>{"account_id"=>"7", "kind"=>"deposit", "sum"=>"100"}, "commit"=>"Create Transaction"}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /home/vlada/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 2.5ms)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/transactions_controller.rb:27:in `create'
+Started POST "/transactions" for 127.0.0.1 at 2018-08-14 16:35:49 +0300
+Processing by TransactionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"o94mfyakuKSRHNgu0dqWx9hc6GY6jv/f+IzvkKLEj5CFR4VZhRfujowJopFDdaksFW0IU9GPPDv82WcvqoqN7A==", "transaction"=>{"account_id"=>"7", "kind"=>"deposit", "sum"=>"100"}, "commit"=>"Create Transaction"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /home/vlada/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.6ms)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/transactions_controller.rb:27:in `create'
+Started GET "/transactions/new" for 127.0.0.1 at 2018-08-14 16:35:53 +0300
+Processing by TransactionsController#new as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /home/vlada/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/_form.html.erb (3.0ms)
+  Rendered transactions/new.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 33ms (Views: 24.6ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/transactions" for 127.0.0.1 at 2018-08-14 16:36:05 +0300
+Processing by TransactionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6wrXuSfCA3RlaxeMPh5h+s22txPYA86aunBm+1Dtn9xSTaANYRMGFb+ZhnAW6ijYf9z8KMzo/Cz93eMVnWO0YQ==", "transaction"=>{"user_id"=>"4", "account_id"=>"7", "kind"=>"deposit", "sum"=>"100"}, "commit"=>"Create Transaction"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /home/vlada/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 1.4ms)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/transactions_controller.rb:27:in `create'
+Started POST "/transactions" for 127.0.0.1 at 2018-08-14 16:38:17 +0300
+Processing by TransactionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6wrXuSfCA3RlaxeMPh5h+s22txPYA86aunBm+1Dtn9xSTaANYRMGFb+ZhnAW6ijYf9z8KMzo/Cz93eMVnWO0YQ==", "transaction"=>{"user_id"=>"4", "account_id"=>"7", "kind"=>"deposit", "sum"=>"100"}, "commit"=>"Create Transaction"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /home/vlada/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/transactions_controller.rb:30
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/transactions_controller.rb:30
+  [1m[36mTransaction Create (0.8ms)[0m  [1m[32mINSERT INTO "transactions" ("account_id", "sum", "created_at", "updated_at", "kind", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["account_id", 7], ["sum", "100.0"], ["created_at", "2018-08-14 13:38:17.906813"], ["updated_at", "2018-08-14 13:38:17.906813"], ["kind", "deposit"], ["user_id", 4]]
+  ↳ app/controllers/transactions_controller.rb:30
+  [1m[35m (21.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/transactions_controller.rb:30
+Redirected to http://localhost:3000/transactions/1
+Completed 302 Found in 73ms (ActiveRecord: 33.9ms)
+
+
+Started GET "/transactions/1" for 127.0.0.1 at 2018-08-14 16:38:17 +0300
+Processing by TransactionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /home/vlada/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mTransaction Load (0.4ms)[0m  [1m[34mSELECT  "transactions".* FROM "transactions" WHERE "transactions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/transactions_controller.rb:45
+  Rendering transactions/show.html.erb within layouts/application
+  [1m[36mAccount Load (0.5ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/transactions/show.html.erb:5
+  Rendered transactions/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 32ms (Views: 25.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/transactions/1" for 127.0.0.1 at 2018-08-14 16:39:05 +0300
+Processing by TransactionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /home/vlada/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mTransaction Load (0.5ms)[0m  [1m[34mSELECT  "transactions".* FROM "transactions" WHERE "transactions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/transactions_controller.rb:45
+  Rendering transactions/show.html.erb within layouts/application
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/transactions/show.html.erb:5
+  Rendered transactions/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 26ms (Views: 20.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/transactions" for 127.0.0.1 at 2018-08-14 16:39:11 +0300
+Processing by TransactionsController#index as HTML
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /home/vlada/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering transactions/index.html.erb within layouts/application
+  [1m[36mTransaction Load (0.8ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions"[0m
+  ↳ app/views/transactions/index.html.erb:16
+  [1m[36mAccount Load (0.5ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/transactions/index.html.erb:18
+  Rendered transactions/index.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 35ms (Views: 25.2ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/transactions" for 127.0.0.1 at 2018-08-14 16:39:29 +0300
+Processing by TransactionsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /home/vlada/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering transactions/index.html.erb within layouts/application
+  [1m[36mTransaction Load (0.5ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions"[0m
+  ↳ app/views/transactions/index.html.erb:16
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/transactions/index.html.erb:18
+  Rendered transactions/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 28ms (Views: 23.8ms | ActiveRecord: 1.4ms)
+
+
