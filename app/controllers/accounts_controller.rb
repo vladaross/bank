@@ -10,11 +10,12 @@ class AccountsController < ApplicationController
   # GET /accounts/1
   # GET /accounts/1.json
   def show
+    @transactions = current_user.transactions
   end
 
   # GET /accounts/new
   def new
-    @account = Account.new
+    @account = current_user.transactions.build
   end
 
   # GET /accounts/1/edit
@@ -24,7 +25,7 @@ class AccountsController < ApplicationController
   # POST /accounts
   # POST /accounts.json
   def create
-    @account = Account.new(account_params)
+    @account = current_user.accounts.build(account_params)
 
     respond_to do |format|
       if @account.save

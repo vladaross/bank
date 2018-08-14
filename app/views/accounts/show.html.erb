@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-
 <p>
   <strong>User:</strong>
   <%= @account.user.name %>
@@ -13,6 +12,17 @@
 <p>
   <strong>Amount:</strong>
   <%= @account.amount %>
+</p>
+<p>
+  <strong>Transactions:</strong>
+  <% @transactions.each do |transaction| %>
+    <tr>
+      <td><%= transaction.account.currency %></td>
+      <td><%= transaction.kind %></td>
+      <td><%= transaction.sum %></td>
+      <td><%= link_to 'Show', transaction %></td>
+    </tr>
+  <% end %>
 </p>
 
 <%= link_to 'Back', accounts_path %>
